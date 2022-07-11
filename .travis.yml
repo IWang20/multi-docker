@@ -21,4 +21,16 @@ after_success:
   - docker push ianwang4/multi-client 
   - docker push ianwang4/multi-nginx 
   - docker push ianwang4/multi-server 
-  - docker push ianwang4/multi-worker 
+  - docker push ianwang4/multi-worker
+  provider: elasticbeanstalk
+
+deploy:
+  region: "us-east-2"
+  app: "multi-docker"
+  env: "MultiDocker-env"
+  bucket_name: "elasticbeanstalk-us-east-2-054008132521"  # Find in S3
+  bucket_path: "multi-docker"
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$SECRET_ACCESS_KEY"
+  on:
+    branch: master 
