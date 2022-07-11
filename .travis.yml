@@ -22,9 +22,10 @@ after_success:
   - docker push ianwang4/multi-nginx 
   - docker push ianwang4/multi-server 
   - docker push ianwang4/multi-worker
-  provider: elasticbeanstalk
+  
 
 deploy:
+  provider: elasticbeanstalk
   region: "us-east-2"
   app: "multi-docker"
   env: "MultiDocker-env"
